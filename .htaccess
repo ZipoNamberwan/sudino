@@ -1,0 +1,18 @@
+# prevent directory listings
+Options -Indexes
+IndexIgnore */*
+
+# block access to the .env file
+<Files ".env*">
+    Require all denied
+</Files>
+
+# follow symbolic links
+Options FollowSymlinks
+RewriteEngine on
+RewriteRule ^admin(/.+)?$ backend/web/$1 [L,PT]
+RewriteRule ^(.+)?$ frontend/web/$1
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit
