@@ -50,7 +50,6 @@ return [
             'rules' => [
             ],
             */
-            'baseUrl' => 'https://webapps.bps.go.id/jatim/sudino/',
         ],
     ],	
 	'modules' => [

@@ -80,7 +80,7 @@ FontAwesomeAsset::register($this);
 				'options'=>['id'=>'kode_klasifikasi', 'placeholder'=>'Pilih Kode Klasifikasi'],
 				'pluginOptions'=>[
 					'depends'=>['klasifikasi'],
-					'url'=>'https://webapps.bps.go.id/jatim/sudino/frontend/web/index.php?r=surat/kode',//Url::to(['/surat/kode']),
+					'url'=>Url::to(['/surat/kode']),
 				]
 			]);	
 		?><br/>
@@ -92,7 +92,7 @@ FontAwesomeAsset::register($this);
 				'options'=>['id'=>'kode_subklasifikasi', 'placeholder'=>'Pilih Kode Subklasifikasi'],
 				'pluginOptions'=>[
 					'depends'=>['klasifikasi','kode_klasifikasi'],
-					'url'=>'https://webapps.bps.go.id/jatim/sudino/frontend/web/index.php?r=surat/subkode',//Url::to(['/surat/subkode']),
+					'url'=>Url::to(['/surat/subkode']),
 				]
 			]);	
 		?><br/>
@@ -104,7 +104,7 @@ FontAwesomeAsset::register($this);
 				'options'=>['id'=>'kode_subklasifikasi2', 'placeholder'=>'Pilih Kode Subsubklasifikasi'],
 				'pluginOptions'=>[
 					'depends'=>['klasifikasi','kode_klasifikasi','kode_subklasifikasi'],
-					'url'=>'https://webapps.bps.go.id/jatim/sudino/frontend/web/index.php?r=surat/subkode2',//Url::to(['/surat/subkode2']),
+					'url'=>Url::to(['/surat/subkode2']),
 				]
 			]);	
 		?><br/>

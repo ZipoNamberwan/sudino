@@ -157,7 +157,7 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->signup()) {
             Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
             //return $this->refresh();
-            return $this->redirect("https://webapps.bps.go.id/jatim/sudino/frontend/web/index.php?r=site/signup");
+            return $this->redirect(['site/signup']);
         }
 
         return $this->render('signup', [
@@ -178,7 +178,7 @@ class SiteController extends Controller
                 Yii::$app->session->setFlash('success', 'Check your email for further instructions.');
 
                 //return $this->refresh();
-                return $this->redirect("https://webapps.bps.go.id/jatim/sudino/frontend/web/index.php?r=site/request-password-reset");
+                return $this->redirect(['site/request-password-reset']);
             } else {
                 Yii::$app->session->setFlash('error', 'Sorry, we are unable to reset password for the provided email address.');
             }
