@@ -14,9 +14,20 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        'request' => [
-            'csrfParam' => '_csrf-frontend',
-        ],
+        'request' => array_merge(
+            ['csrfParam' => '_csrf-frontend'],
+            // Public URL when running behind a reverse proxy (FRONTEND_URL in .env).
+            // Left empty, Yii detects host and path from the incoming request.
+            env('FRONTEND_URL') ? (function ($url) {
+                $parts = parse_url(rtrim($url, '/'));
+                $baseUrl = isset($parts['path']) ? $parts['path'] : '';
+                return [
+                    'hostInfo' => $parts['scheme'] . '://' . $parts['host'] . (isset($parts['port']) ? ':' . $parts['port'] : ''),
+                    'baseUrl' => $baseUrl,
+                    'scriptUrl' => $baseUrl . '/index.php',
+                ];
+            })(env('FRONTEND_URL')) : []
+        ),
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
